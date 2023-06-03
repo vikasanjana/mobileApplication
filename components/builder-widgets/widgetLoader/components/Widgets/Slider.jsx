@@ -1,13 +1,13 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-const Slider = ({title, icon, link,name}) => {
+const Slider = ({title, icon, link,name,widgetHtml}) => {
   const ItemTypes = {
     BOX: "box",
   };
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.BOX,
-    item: { name , html: "<div>Hello, Widget!</div>" },
+    item: { name , element: widgetHtml },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
       handlerId: monitor.getHandlerId(),

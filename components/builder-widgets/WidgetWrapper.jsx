@@ -5,14 +5,15 @@ import { useDrop } from "react-dnd";
 import MainBuilder from "../builder/MainBuilder";
 
 const WidgetWrapper = () => {
-  const [html, setHtml] = useState(null);
+  const [elements, setElements] = useState([]);
   const ItemTypes = {
     BOX: "box",
   };
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
     drop: (item, monitor) => {
-      setHtml(item.html);
+      console.log('element on widgewrapper.jsx', item.element) 
+      setElements((prevElements) => [...prevElements, item.element]);
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
@@ -23,20 +24,20 @@ const WidgetWrapper = () => {
   return (
     <Container fluid>
       <Row>
-        <Col md={4} className="my-2">
+        <Col md={3} className="my-2">
           <LoaderWrapper />
         </Col>
 
         <Col
-          md={8}
+          md={9}
           ref={drop}
           data-testid="dustbin"
           className="shadow-orange-50 min-h-screen border-spacing-1"
         >
           {isActive ? (
-            "Release to drop"
+           <MainBuilder elements={elements} />
           ) : (
-            <MainBuilder />
+            <MainBuilder elements={elements} />
           )}
         </Col>
       </Row>

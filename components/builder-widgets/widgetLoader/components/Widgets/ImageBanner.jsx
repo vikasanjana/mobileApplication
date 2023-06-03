@@ -1,13 +1,13 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-const ImageBanner = ({ title, icon, link,name }) => {
+const ImageBanner = ({ title, icon, link,name,widgetHtml }) => {
   const ItemTypes = {
     BOX: "box",
   };
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.BOX,
-    item: { name , html:  ''},
+    item: { name , element:widgetHtml },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
       handlerId: monitor.getHandlerId(),

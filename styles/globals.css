@@ -43,3 +43,28 @@ table.basic a {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     
 }
+.ckMainWidgetLoader .card-title{
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-bottom: 0;
+}
+.ckMainWidgetLoader .card-text{
+    font-size: 10px;
+    padding: 0px 10px 5px 10px;
+    margin-bottom: 0;
+}
+.ckMainWidgetLoader .card-body{
+    padding: 10px;
+    margin-bottom: 0;
+}
+.ckMainWidgetLoader .card button {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    font-size: 15px;
+    padding: 5px 0;
+}
+.ckMainWidgetLoader .card{
+    @apply shadow-lg;
+    border: 0;
+}
