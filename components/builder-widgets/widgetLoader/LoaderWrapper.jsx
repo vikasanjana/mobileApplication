@@ -19,9 +19,9 @@ const LoaderWrapper = () => {
         <p className="m-0 uppercase my-2 text-gray-400">Text</p>
       </div>
       <div className="gap-4 flex-nowrap flex">
-        <ImageBanner title={WidgetJson.banner.title} icon={WidgetJson.banner.icon} />
-        <Slider title={WidgetJson.slider.title} icon={WidgetJson.slider.icon} />
-        <CardGrid title={WidgetJson.grid.title} icon={WidgetJson.grid.icon} />
+        <ImageBanner title={WidgetJson.banner.title} icon={WidgetJson.banner.icon} name='ImageBanner' />
+        <Slider title={WidgetJson.slider.title} icon={WidgetJson.slider.icon} name='Slider' />
+        <CardGrid title={WidgetJson.grid.title} icon={WidgetJson.grid.icon} name='CardGrid' />
       </div>
     </Container>
   );
