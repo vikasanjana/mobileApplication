@@ -17,7 +17,7 @@ const SliderHtml = () => {
           clickable: true,
         }}
         autoplay={{
-            delay:1000,
+            delay:2500,
         }}
         modules={[Pagination, Navigation , Autoplay]}
         className="p-0 py-2"

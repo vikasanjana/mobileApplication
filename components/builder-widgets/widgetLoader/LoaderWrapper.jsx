@@ -14,7 +14,7 @@ const LoaderWrapper = () => {
         setWidget(WidgetJson)
     }, [])
   return (
-    <Container fluid className="shadow h-screen border p-2">
+    <Container fluid className="shadow h-screen border p-2 sticky top-10">
       <WidgetSearch />
       <div className="text">
         <p className="m-0 uppercase my-2 text-gray-400">Text</p>
