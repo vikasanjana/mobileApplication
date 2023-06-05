@@ -22,7 +22,7 @@ const WidgetWrapper = () => {
   }));
   const isActive = canDrop && isOver;
   return (
-    <Container fluid>
+    <Container fluid className="p-0">
       <Row>
         <Col md={3} className="my-2">
           <LoaderWrapper />

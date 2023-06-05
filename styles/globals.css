@@ -68,3 +68,9 @@ table.basic a {
     @apply shadow-lg;
     border: 0;
 }
+.ckDropdownButon{
+    @apply bg-gray-200 !important;
+    @apply  px-2 py-3 !important;
+    @apply focus:shadow-none;
+}
+
