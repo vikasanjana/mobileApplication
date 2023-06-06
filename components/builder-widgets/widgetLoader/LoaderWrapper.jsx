@@ -5,8 +5,8 @@ import ImageBanner from "./components/Widgets/blocks/ImageBanner";
 import Slider from "./components/Widgets/blocks/Slider";
 import WidgetJson from "@/WidgetsJson/WidgetJson";
 import CardGrid from "./components/Widgets/blocks/CardGrid";
-import ImageBannerHtml from "@/components/builder/components/BuilderBody/components/widgets/ImageBannerHtml";
-import SliderHtml from "@/components/builder/components/BuilderBody/components/widgets/SliderHtml";
+import ImageBannerHtml from "@/components/builder/components/BuilderBody/components/widgets/blocks/ImageBannerHtml";
+import SliderHtml from "@/components/builder/components/BuilderBody/components/widgets/blocks/SliderHtml";
 import Text from "./components/Widgets/elements/Text";
 import WidgetsJson from "@/WidgetsJson/WidgetJson";
 import Image from "./components/Widgets/elements/Image";
@@ -17,13 +17,22 @@ import Quotes from "./components/Widgets/elements/Quotes";
 import ProductListing from "./components/Widgets/blocks/ProductListing";
 import Button from "./components/Widgets/blocks/Button";
 import AccordionWid from "./components/Widgets/blocks/Accordion";
+import TextHtml from "@/components/builder/components/BuilderBody/components/widgets/elements/TextHtml";
 
 const LoaderWrapper = () => {
   const [elements, setElements] = useState(null);
   const [blocks, setBlocks] = useState(null);
+  const [textHtmlWidget, setTextHtmlTag] = useState({});
   useEffect(() => {
     setElements(WidgetsJson.elements);
     setBlocks(WidgetJson.blocks);
+    setTextHtmlTag({
+      tag: "h3",
+      text: "lorem ipsum isgru",
+      style : {
+        textAlign:'center',
+      },
+    });
   }, []);
   return (
     <Container
@@ -46,7 +55,12 @@ const LoaderWrapper = () => {
                     title={elements.text.title}
                     icon={elements.text.icon}
                     name="Text"
-                    widgetHtml={<ImageBannerHtml />}
+                    widgetHtml={
+                      <TextHtml
+                        element={`<${textHtmlWidget.tag} className="ckWidgetHtml ckTextWidget"> ${textHtmlWidget.text}  </${textHtmlWidget.tag}> `}
+                        style={textHtmlWidget.style} type='textWidget'  
+                      />
+                    }
                   />
                   <Image
                     title={elements.image.title}

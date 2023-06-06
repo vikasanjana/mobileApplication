@@ -5,6 +5,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const MainBuilder = ({ elements }) => {
   const [builderElement, setbuilderElement] = useState(null);
+  const [selectedWidgetElement, setSelectedWidgetElement] = useState(null);
   useEffect(() => {
     if (!elements) {
       return;
@@ -26,12 +27,19 @@ const MainBuilder = ({ elements }) => {
   };
 
   /**
+   * Function for handle click or loaded elements
+   */
+  const handleElementClick = (event, elementProps) => {
+    setSelectedWidgetElement(elementProps);
+  };
+
+  /**
    * Function for hanlde publish
    */
   const hanldePublish = (e) => {
-    e.preventDefault()
-    console.log('working')
-  } 
+    e.preventDefault();
+    console.log("working");
+  };
   return (
     <Container fluid>
       <Row className="p-3">
@@ -59,6 +67,9 @@ const MainBuilder = ({ elements }) => {
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
                               ref={provided.innerRef}
+                              onClick={(event) =>
+                                handleElementClick(event, item.props)
+                              }
                             >
                               {item}
                             </div>
@@ -72,8 +83,11 @@ const MainBuilder = ({ elements }) => {
             </Droppable>
           </DragDropContext>
         </Col>
+
+        {/* Load Styling component */}
         <Col md={4}>
           <div className="flex justify-center">
+            {console.log(selectedWidgetElement)}
             <Button onClick={hanldePublish}>Publish</Button>
           </div>
         </Col>
